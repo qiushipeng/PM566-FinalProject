@@ -5,6 +5,8 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Download the report"
+      href: https://github.com/qiushipeng/PM566-FinalProject
   right:
     - icon: fa-github fa-lg
       href: https://github.com/qiushipeng/PM566-FinalProject
