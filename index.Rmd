@@ -106,7 +106,7 @@ We used several R libraries: *data.table*, *tidyverse*, *dplyr*, *plotly*, *DT*,
 
 <br>
 
-# Results
+# Results 
 
 ```{r echo = FALSE}
 table_sex <- Cal[ , .(
@@ -120,8 +120,7 @@ table_sex <- Cal[ , .(
 ```
 
 
-## Figures
-We made a line plot to show rate of each infectious disease from 2001 to 2020.
+## Figures and Table {.tabset}
 ```{r echo = FALSE}
 lineplot_01to20 <- ggplot(data = Cal[Sex == "Total"], mapping = aes(x = Year, y = Rate, colour = Disease)) + geom_line() + geom_point() + 
   theme(legend.position = "bottom", legend.text = element_text(size = 5, hjust = 1), legend.title = element_text(size = 7), 
@@ -134,9 +133,7 @@ lineplot_01to20 <- ggplot(data = Cal[Sex == "Total"], mapping = aes(x = Year, y 
 ggplotly(lineplot_01to20)
 ```
 
-From the plot, we can see that *Campylobacteriosis*, *Salmonellosis*, *Giardiasis*, *Shigellosis*, and *Coccidioidomycosis* always have a high infection rate from 2001 to 2020. We also notice that *Shiga toxin-producing E. coli (STEC) without HUS* rate has increased a lot since 2011.
 
-Let's look further at the disease with the highest infection rate -- *Campylobacteriosis*.
 ```{r echo = FALSE}
 boxplot_01to20 <- ggplot() + 
   geom_boxplot(data = diseases[Sex == "Total" & Disease == "Campylobacteriosis"], mapping = aes(y = Rate, x = Year, group = Year)) +
@@ -149,9 +146,7 @@ boxplot_01to20 <- ggplot() +
 ggplotly(boxplot_01to20)
 ```
 
-From the plot, we can see that infection rate of **Campylobacteriosis** is high in 2019.
 
-Let's look at the disease in each county in 2019.
 
 ```{r echo = FALSE}
 barplot_2019 <- ggplot() + 
@@ -164,9 +159,6 @@ barplot_2019 <- ggplot() +
 ggplotly(barplot_2019)
 ```
 
-From the plot, we can see that **San Benito** has a highest infection rate of **Campylobacteriosis** in 2019. Alpine has the lowest infection rate.
-
-Let see the data in a map view to see if there is a geographical factor playing a role.
 
 ```{r echo = FALSE}
 library(leaflet)
@@ -191,33 +183,34 @@ leaflet_SB_2019
 
 
 
-We made a table to see that if infection rates are the same for different genders.
+
 ```{r echo = FALSE}
 Camp_County_2019 <- diseases[Disease == "Campylobacteriosis" & County == "San Benito" & Year == 2019][, .(Sex, Cases, Population, Rate)]
 # knitr::kable(Camp_County_2019)
 ```
 
+### Table 1
 ```{r Camp_County_2019, echo = FALSE}
 datatable(Camp_County_2019)
 ```
 
-Chi-square test.
+
 ```{r echo = FALSE}
 library(stats)
 contingency_table <- matrix(c(19,20,31089,30923), nrow = 2, ncol = 2)
 chisq.test(contingency_table)
 ```
 
-There is not a significant difference between male and female for the infection rate of Campylobacteriosis in San Benito in 2019 (p = 0.9867).
+
 
 <br>
 
 # Conclusion and Summary
 
-1. *Campylobacteriosis*, *Salmonellosis*, *Giardiasis*, *Shigellosis*, and *Coccidioidomycosis* always have a higher infection rate from 2001 to 2020 than other infectious diseases. *Shiga toxin-producing E. coli (STEC) without HUS* infection rate has increased significantly a lot since 2011.
-2. *San Benito* had a very high infection rate of *Campylobacteriosis* in 2019, which is more than 60%.
-3. There is not a significant difference between male and female for the infection rate of Campylobacteriosis in San Benito in 2019.
-4. Counties around San Francisco had a higher infection rate of Campylobacteriosis in 2019. Inland area had relatively lower infection rate of Campylobacteriosis.
+1. We can see that *Campylobacteriosis*, *Salmonellosis*, *Giardiasis*, *Shigellosis*, and *Coccidioidomycosis* always have a higher infection rate from 2001 to 2020 than other infectious diseases. *Shiga toxin-producing E. coli (STEC) without HUS* infection rate has increased significantly a lot since 2011 (Figure 1).
+2. *San Benito* had a very high infection rate of *Campylobacteriosis* in 2019 (Figure 2, 3), which is more than 60%.
+3. There is not a significant difference between male and female for the infection rate of Campylobacteriosis in San Benito in 2019 (p = 0.9867, Table 1).
+4. Counties around San Francisco had a higher infection rate of Campylobacteriosis in 2019. Inland area had relatively lower infection rate of Campylobacteriosis (Figure 4).
 
 <br>
 
