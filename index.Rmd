@@ -2,10 +2,10 @@
 title: "PM566 Final Project"
 author: "Qiushi Peng"
 output:
-  pdf_document: default
   html_document:
     toc: yes
     toc_float: yes
+  pdf_document: default
 always_allow_html: TRUE
 ---
 
