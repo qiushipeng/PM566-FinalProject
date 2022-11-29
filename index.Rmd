@@ -1,5 +1,5 @@
 ---
-title: "PM566 Final Project"
+title: "Landscape of Infectious Diseases in California"
 author: "Qiushi Peng"
 output:
   html_document:
