@@ -9,7 +9,7 @@ navbar:
       href: https://github.com/qiushipeng/PM566-FinalProject
   right:
     - icon: fa-github fa-lg
-      href: https://github.com/qiushipeng/PM566-FinalProject
+      href: https://github.com/qiushipeng/PM566-FinalProject/blob/main/index.pdf
 output:
   html_document:
     theme: cosmo
