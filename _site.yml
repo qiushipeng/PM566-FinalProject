@@ -3,7 +3,7 @@ output_dir: "."
 navbar:
   title: "Lab 12"
   left:
-    - text: "Home"
+    - text: "PM566 Final Project"
       href: index.html
     - text: "Download the report"
       href: https://github.com/qiushipeng/PM566-FinalProject/blob/main/index.pdf
