@@ -1,0 +1,72 @@
+---
+title: "Summary Tables"
+author: "Qiushi Peng"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+```{r setup, message=FALSE, echo=FALSE, warning=FALSE}
+library(data.table)
+library(tidyverse)
+library(dplyr)
+library(DT)
+library(knitr)
+
+# Initialize code chunk options
+opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  eval=TRUE,
+  echo = TRUE,
+  cache = FALSE,
+  fig.width = 7, 
+  fig.align = 'center',
+  fig.asp = 0.618,
+  out.width = "700px")
+
+```
+
+
+```{r readin-data, echo = FALSE}
+diseases <- data.table::fread("data/odp_idb_2020_ddg_compliant.csv")
+```
+
+```{r echo = FALSE}
+CA_geo <- data.table::fread("data/us-county-boundaries.csv")
+CA_geo <- CA_geo[,.(NAME, INTPTLAT, INTPTLON)]
+```
+
+```{r echo = FALSE}
+diseases <- 
+  merge(x = diseases,
+      y = CA_geo,
+      by.x = "County",
+      by.y = "NAME",
+      all.x = TRUE,
+      alL.Y = FALSE)
+```
+
+
+```{r echo = FALSE}
+diseases <- filter(diseases, !is.na(Cases))
+diseases$Rate[which(diseases$Rate == "-")] <- NA
+diseases$Rate[which(diseases$Rate == "-")] <- NA
+diseases <- filter(diseases, !is.na(Rate))
+```
+
+```{r echo = FALSE}
+diseases[ , Rate := gsub("\\*", "", Rate)]
+diseases[ , Rate := as.numeric(Rate)]
+```
+
+```{r echo = FALSE}
+Cal <- diseases[County == "California"]
+diseases <- diseases[County != "California"]
+```
+
+Summary Table
+
+```{r Summary Tabl, echo = FALSE}
+datatable(diseases)
+```

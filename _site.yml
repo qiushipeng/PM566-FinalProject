@@ -1,17 +1,23 @@
 name: "my-website"
 output_dir: "."
 navbar:
-  title: "Lab 12"
+  title: "PM566 Final Project"
   left:
-    - text: "PM566 Final Project"
+    - text: "Home"
       href: index.html
+      
+    - text: "Summary Table"
+      href: summary.html
+      
     - text: "Download the report"
       href: https://github.com/qiushipeng/PM566-FinalProject/blob/main/index.pdf
+  
   right:
     - icon: fa-github fa-lg
+      text: "Github Repository"
       href: https://github.com/qiushipeng/PM566-FinalProject
 output:
   html_document:
-    theme: cosmo
+    theme: flatly
     include:
       after_body: footer.html

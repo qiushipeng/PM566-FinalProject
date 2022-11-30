@@ -1,4 +1,6 @@
-My PM566 Final Project Website
+---
+title: "My PM566 Final Project Website"
+---
 
 My website: [PM566-FinalProject](https://qiushipeng.github.io/PM566-FinalProject) 
 

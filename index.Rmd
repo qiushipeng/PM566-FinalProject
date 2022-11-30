@@ -7,9 +7,8 @@ output:
     toc_float: yes
   pdf_document: default
 always_allow_html: TRUE
+date: "`r Sys.Date()`"
 ---
-
-This is my PM566 Final Project website.
 
 <br>
 
@@ -217,6 +216,9 @@ chisq.test(contingency_table)
 # Reference
 
 1. California Department of Public Health, Center for Infectious Diseases, Infectious Diseases Branch, Surveillance and Statistics Section, 2001-2020. Infectious-Diseases-by-Disease-County-Year-Sex.csv
+
+
+# Discussion
 
 
 
