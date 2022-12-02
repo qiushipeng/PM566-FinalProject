@@ -218,7 +218,5 @@ chisq.test(contingency_table)
 1. California Department of Public Health, Center for Infectious Diseases, Infectious Diseases Branch, Surveillance and Statistics Section, 2001-2020. Infectious-Diseases-by-Disease-County-Year-Sex.csv
 
 
-# Discussion
-
 
 
