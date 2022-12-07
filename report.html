@@ -11,14 +11,14 @@
 
 <meta name="author" content="Qiushi Peng" />
 
-<meta name="date" content="2022-12-02" />
+<meta name="date" content="2022-12-07" />
 
 <title>Landscape of Infectious Diseases in California</title>
 
 <script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -31,9 +31,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -243,69 +240,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -313,16 +247,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -346,7 +270,7 @@ div.tocify {
   <a href="summary.html">Summary Table</a>
 </li>
 <li>
-  <a href="https://github.com/qiushipeng/PM566-FinalProject/blob/main/index.pdf">Download the report</a>
+  <a href="https://github.com/qiushipeng/PM566-FinalProject/blob/main/report.pdf">Download the report</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -369,7 +293,7 @@ div.tocify {
 <h1 class="title toc-ignore">Landscape of Infectious Diseases in
 California</h1>
 <h4 class="author">Qiushi Peng</h4>
-<h4 class="date">2022-12-02</h4>
+<h4 class="date">2022-12-07</h4>
 
 </div>
 
@@ -377,8 +301,14 @@ California</h1>
 <p><br></p>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>The dataset, called <em>Infectious Diseases by Disease, County, Year,
-and Sex</em>, is downloaded from <a
+<p>The most well-known infectious disease probably is the COVID-19,
+because it has been bothering us for several years. Fortunately, we have
+vaccines and drugs against COVID-19. However, a lot of infectious
+diseases have not been known widely. Although they may have limited
+influence on our lives, I think we should still pay attention to them.
+Because they also cause diseases and even death.</p>
+<p>Therefore, I found a dataset called <em>Infectious Diseases by
+Disease, County, Year, and Sex</em>. It is downloaded from <a
 href="https://data.chhs.ca.gov/">California Health and Human Services
 Open Data Portal</a>.</p>
 <p>This dataset contains case counts and rates by disease, county, year,
@@ -394,16 +324,17 @@ reportable case counts as of the date indicated in the “Temporal
 Coverage” section below, so the data presented may differ from previous
 publications due to delays inherent to case reporting, laboratory
 reporting, and epidemiologic investigation.</p>
-<p>After looking at the whole dataset, we formed two questions: We would
-like to know the infectious diseases with the highest prevalence, and in
-which year the diseases had a highest infection rate. In that year, did
-the diseases spread evenly across the whole state? Is there a
-significant difference in infection rates between males and females?</p>
+<p>After looking at the whole dataset, we formed some questions:
+<strong>What is the infectious disease with the highest prevalence, and
+in which year the diseases had a highest infection rate?</strong>
+<strong>In that year, did the diseases spread evenly across the whole
+state? Is there a significant difference in infection rates between
+males and females?</strong></p>
 </div>
 <div id="methods" class="section level1">
 <h1>Methods</h1>
-<div id="data-acquisition" class="section level3">
-<h3>1. Data acquisition</h3>
+<div id="data-acquisition" class="section level2">
+<h2>Data acquisition</h2>
 <p>Data was downloaded from “<a
 href="https://data.chhs.ca.gov/dataset/infectious-disease"
 class="uri">https://data.chhs.ca.gov/dataset/infectious-disease</a>”.</p>
@@ -411,610 +342,54 @@ class="uri">https://data.chhs.ca.gov/dataset/infectious-disease</a>”.</p>
 href="https://public.opendatasoft.com/explore/dataset/us-county-boundaries/export/?disjunctive.statefp&amp;disjunctive.countyfp&amp;disjunctive.name&amp;disjunctive.namelsad&amp;disjunctive.stusab&amp;disjunctive.state_name&amp;refine.stusab=CA"
 class="uri">https://public.opendatasoft.com/explore/dataset/us-county-boundaries/export/?disjunctive.statefp&amp;disjunctive.countyfp&amp;disjunctive.name&amp;disjunctive.namelsad&amp;disjunctive.stusab&amp;disjunctive.state_name&amp;refine.stusab=CA</a>”.</p>
 </div>
-<div id="data-cleaning-and-wrangling" class="section level3">
-<h3>2. Data cleaning and wrangling</h3>
-<p>Merge <em>diseasaes</em> and <em>CA_geo</em>.</p>
-<p>The dataset has 6 columns. Among them, columns “Cases” and “Rate”
-have several missing values because of “Scoring Criteria” prevent them
-from being publicated. Thus, we can remove them.</p>
-<p>Remove NA rows.</p>
+<div id="data-cleaning-and-wrangling" class="section level2">
+<h2>Data cleaning and wrangling</h2>
+<p>First, I merged the main dataset and geographical dataset.</p>
+<p>The dataset combined dataset has 11 columns. Among them, columns
+“Cases” and “Rate” have several missing values because of “Scoring
+Criteria” prevent them from being publicated. Thus, we can remove
+them.</p>
 <p>The data type of column “Rate” is <em>chr</em>, which we do not want
 it to be. Thus, we change the data type to <em>num</em>.</p>
 <p>The “County” column includes rows called “California”, which is the
-state not a county, so we delete them. We saved the aggregate
+state not a county, so we delete them. I saved the aggregate
 “California” data into a new variable “Cal”.</p>
 </div>
 </div>
-<div id="preliminary-results" class="section level1">
-<h1>Preliminary Results</h1>
-<div id="summary-table" class="section level3">
-<h3>Summary Table</h3>
-<table>
-<colgroup>
-<col width="7%" />
-<col width="10%" />
-<col width="26%" />
-<col width="14%" />
-<col width="14%" />
-<col width="13%" />
-<col width="13%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="right">Year</th>
-<th align="left">Sex</th>
-<th align="right">Count of Diseases</th>
-<th align="right">Cases Avg</th>
-<th align="right">Cases SD</th>
-<th align="right">Rate Avg</th>
-<th align="right">Rate SD</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">2010</td>
-<td align="left">Female</td>
-<td align="right">33</td>
-<td align="right">280</td>
-<td align="right">721.2064</td>
-<td align="right">1.493121</td>
-<td align="right">3.849269</td>
-</tr>
-<tr class="even">
-<td align="right">2010</td>
-<td align="left">Total</td>
-<td align="right">35</td>
-<td align="right">599</td>
-<td align="right">1548.3724</td>
-<td align="right">1.608657</td>
-<td align="right">4.156293</td>
-</tr>
-<tr class="odd">
-<td align="right">2011</td>
-<td align="left">Female</td>
-<td align="right">35</td>
-<td align="right">255</td>
-<td align="right">669.4607</td>
-<td align="right">1.347200</td>
-<td align="right">3.533235</td>
-</tr>
-<tr class="even">
-<td align="right">2011</td>
-<td align="left">Male</td>
-<td align="right">37</td>
-<td align="right">317</td>
-<td align="right">859.1431</td>
-<td align="right">1.689595</td>
-<td align="right">4.576258</td>
-</tr>
-<tr class="odd">
-<td align="right">2011</td>
-<td align="left">Total</td>
-<td align="right">40</td>
-<td align="right">520</td>
-<td align="right">1456.4073</td>
-<td align="right">1.378425</td>
-<td align="right">3.860948</td>
-</tr>
-<tr class="even">
-<td align="right">2012</td>
-<td align="left">Female</td>
-<td align="right">38</td>
-<td align="right">256</td>
-<td align="right">736.3415</td>
-<td align="right">1.339368</td>
-<td align="right">3.849926</td>
-</tr>
-<tr class="odd">
-<td align="right">2012</td>
-<td align="left">Male</td>
-<td align="right">39</td>
-<td align="right">311</td>
-<td align="right">862.0373</td>
-<td align="right">1.638974</td>
-<td align="right">4.546186</td>
-</tr>
-<tr class="even">
-<td align="right">2012</td>
-<td align="left">Total</td>
-<td align="right">41</td>
-<td align="right">536</td>
-<td align="right">1552.2050</td>
-<td align="right">1.407951</td>
-<td align="right">4.075307</td>
-</tr>
-<tr class="odd">
-<td align="right">2013</td>
-<td align="left">Female</td>
-<td align="right">37</td>
-<td align="right">250</td>
-<td align="right">703.9731</td>
-<td align="right">1.299622</td>
-<td align="right">3.654021</td>
-</tr>
-<tr class="even">
-<td align="right">2013</td>
-<td align="left">Male</td>
-<td align="right">38</td>
-<td align="right">306</td>
-<td align="right">826.7953</td>
-<td align="right">1.601316</td>
-<td align="right">4.323413</td>
-</tr>
-<tr class="odd">
-<td align="right">2013</td>
-<td align="left">Total</td>
-<td align="right">40</td>
-<td align="right">536</td>
-<td align="right">1515.2563</td>
-<td align="right">1.395600</td>
-<td align="right">3.947092</td>
-</tr>
-<tr class="even">
-<td align="right">2014</td>
-<td align="left">Female</td>
-<td align="right">34</td>
-<td align="right">281</td>
-<td align="right">748.9854</td>
-<td align="right">1.445471</td>
-<td align="right">3.857928</td>
-</tr>
-<tr class="odd">
-<td align="right">2014</td>
-<td align="left">Male</td>
-<td align="right">36</td>
-<td align="right">322</td>
-<td align="right">839.6155</td>
-<td align="right">1.670944</td>
-<td align="right">4.352204</td>
-</tr>
-<tr class="even">
-<td align="right">2014</td>
-<td align="left">Total</td>
-<td align="right">38</td>
-<td align="right">573</td>
-<td align="right">1572.9944</td>
-<td align="right">1.481316</td>
-<td align="right">4.063930</td>
-</tr>
-<tr class="odd">
-<td align="right">2015</td>
-<td align="left">Female</td>
-<td align="right">33</td>
-<td align="right">333</td>
-<td align="right">835.9687</td>
-<td align="right">1.701939</td>
-<td align="right">4.274537</td>
-</tr>
-<tr class="even">
-<td align="right">2015</td>
-<td align="left">Male</td>
-<td align="right">39</td>
-<td align="right">348</td>
-<td align="right">898.8099</td>
-<td align="right">1.790641</td>
-<td align="right">4.620956</td>
-</tr>
-<tr class="odd">
-<td align="right">2015</td>
-<td align="left">Total</td>
-<td align="right">39</td>
-<td align="right">632</td>
-<td align="right">1673.0009</td>
-<td align="right">1.620667</td>
-<td align="right">4.288898</td>
-</tr>
-<tr class="even">
-<td align="right">2016</td>
-<td align="left">Female</td>
-<td align="right">36</td>
-<td align="right">327</td>
-<td align="right">815.8107</td>
-<td align="right">1.660472</td>
-<td align="right">4.146697</td>
-</tr>
-<tr class="odd">
-<td align="right">2016</td>
-<td align="left">Male</td>
-<td align="right">40</td>
-<td align="right">381</td>
-<td align="right">990.1014</td>
-<td align="right">1.944175</td>
-<td align="right">5.056574</td>
-</tr>
-<tr class="even">
-<td align="right">2016</td>
-<td align="left">Total</td>
-<td align="right">41</td>
-<td align="right">660</td>
-<td align="right">1741.9735</td>
-<td align="right">1.680268</td>
-<td align="right">4.437598</td>
-</tr>
-<tr class="odd">
-<td align="right">2017</td>
-<td align="left">Female</td>
-<td align="right">42</td>
-<td align="right">334</td>
-<td align="right">895.9890</td>
-<td align="right">1.686452</td>
-<td align="right">4.528398</td>
-</tr>
-<tr class="even">
-<td align="right">2017</td>
-<td align="left">Male</td>
-<td align="right">43</td>
-<td align="right">427</td>
-<td align="right">1146.1842</td>
-<td align="right">2.167233</td>
-<td align="right">5.817424</td>
-</tr>
-<tr class="odd">
-<td align="right">2017</td>
-<td align="left">Total</td>
-<td align="right">43</td>
-<td align="right">755</td>
-<td align="right">2017.9861</td>
-<td align="right">1.910721</td>
-<td align="right">5.110320</td>
-</tr>
-<tr class="even">
-<td align="right">2018</td>
-<td align="left">Female</td>
-<td align="right">40</td>
-<td align="right">385</td>
-<td align="right">968.5417</td>
-<td align="right">1.939375</td>
-<td align="right">4.874162</td>
-</tr>
-<tr class="odd">
-<td align="right">2018</td>
-<td align="left">Male</td>
-<td align="right">39</td>
-<td align="right">493</td>
-<td align="right">1200.2316</td>
-<td align="right">2.489077</td>
-<td align="right">6.061918</td>
-</tr>
-<tr class="even">
-<td align="right">2018</td>
-<td align="left">Total</td>
-<td align="right">41</td>
-<td align="right">846</td>
-<td align="right">2118.3376</td>
-<td align="right">2.133293</td>
-<td align="right">5.339772</td>
-</tr>
-<tr class="odd">
-<td align="right">2019</td>
-<td align="left">Female</td>
-<td align="right">41</td>
-<td align="right">403</td>
-<td align="right">1026.8203</td>
-<td align="right">2.024537</td>
-<td align="right">5.156120</td>
-</tr>
-<tr class="even">
-<td align="right">2019</td>
-<td align="left">Male</td>
-<td align="right">39</td>
-<td align="right">525</td>
-<td align="right">1299.3127</td>
-<td align="right">2.643667</td>
-<td align="right">6.546857</td>
-</tr>
-<tr class="odd">
-<td align="right">2019</td>
-<td align="left">Total</td>
-<td align="right">41</td>
-<td align="right">904</td>
-<td align="right">2291.5611</td>
-<td align="right">2.274634</td>
-<td align="right">5.763299</td>
-</tr>
-<tr class="even">
-<td align="right">2020</td>
-<td align="left">Female</td>
-<td align="right">36</td>
-<td align="right">298</td>
-<td align="right">768.9392</td>
-<td align="right">1.493000</td>
-<td align="right">3.858071</td>
-</tr>
-<tr class="odd">
-<td align="right">2020</td>
-<td align="left">Male</td>
-<td align="right">38</td>
-<td align="right">342</td>
-<td align="right">893.3602</td>
-<td align="right">1.720474</td>
-<td align="right">4.500278</td>
-</tr>
-<tr class="even">
-<td align="right">2020</td>
-<td align="left">Total</td>
-<td align="right">41</td>
-<td align="right">580</td>
-<td align="right">1587.1061</td>
-<td align="right">1.457293</td>
-<td align="right">3.989424</td>
-</tr>
-<tr class="odd">
-<td align="right">2005</td>
-<td align="left">Female</td>
-<td align="right">32</td>
-<td align="right">246</td>
-<td align="right">575.8256</td>
-<td align="right">1.360469</td>
-<td align="right">3.183616</td>
-</tr>
-<tr class="even">
-<td align="right">2005</td>
-<td align="left">Male</td>
-<td align="right">33</td>
-<td align="right">298</td>
-<td align="right">680.6407</td>
-<td align="right">1.663515</td>
-<td align="right">3.802820</td>
-</tr>
-<tr class="odd">
-<td align="right">2005</td>
-<td align="left">Total</td>
-<td align="right">36</td>
-<td align="right">504</td>
-<td align="right">1225.4000</td>
-<td align="right">1.399250</td>
-<td align="right">3.405184</td>
-</tr>
-<tr class="even">
-<td align="right">2006</td>
-<td align="left">Male</td>
-<td align="right">34</td>
-<td align="right">301</td>
-<td align="right">695.2255</td>
-<td align="right">1.669588</td>
-<td align="right">3.856451</td>
-</tr>
-<tr class="odd">
-<td align="right">2006</td>
-<td align="left">Total</td>
-<td align="right">37</td>
-<td align="right">499</td>
-<td align="right">1234.2062</td>
-<td align="right">1.375784</td>
-<td align="right">3.404998</td>
-</tr>
-<tr class="even">
-<td align="right">2007</td>
-<td align="left">Female</td>
-<td align="right">32</td>
-<td align="right">247</td>
-<td align="right">600.5414</td>
-<td align="right">1.342406</td>
-<td align="right">3.268665</td>
-</tr>
-<tr class="odd">
-<td align="right">2007</td>
-<td align="left">Male</td>
-<td align="right">33</td>
-<td align="right">297</td>
-<td align="right">690.9014</td>
-<td align="right">1.632030</td>
-<td align="right">3.800240</td>
-</tr>
-<tr class="even">
-<td align="right">2007</td>
-<td align="left">Total</td>
-<td align="right">36</td>
-<td align="right">498</td>
-<td align="right">1246.5595</td>
-<td align="right">1.363056</td>
-<td align="right">3.410330</td>
-</tr>
-<tr class="odd">
-<td align="right">2008</td>
-<td align="left">Male</td>
-<td align="right">31</td>
-<td align="right">316</td>
-<td align="right">725.0317</td>
-<td align="right">1.722193</td>
-<td align="right">3.955284</td>
-</tr>
-<tr class="even">
-<td align="right">2008</td>
-<td align="left">Total</td>
-<td align="right">32</td>
-<td align="right">566</td>
-<td align="right">1360.7600</td>
-<td align="right">1.534781</td>
-<td align="right">3.692082</td>
-</tr>
-<tr class="odd">
-<td align="right">2009</td>
-<td align="left">Female</td>
-<td align="right">32</td>
-<td align="right">248</td>
-<td align="right">644.6026</td>
-<td align="right">1.330875</td>
-<td align="right">3.459468</td>
-</tr>
-<tr class="even">
-<td align="right">2009</td>
-<td align="left">Male</td>
-<td align="right">34</td>
-<td align="right">287</td>
-<td align="right">708.7938</td>
-<td align="right">1.557794</td>
-<td align="right">3.842854</td>
-</tr>
-<tr class="odd">
-<td align="right">2009</td>
-<td align="left">Total</td>
-<td align="right">36</td>
-<td align="right">498</td>
-<td align="right">1310.8356</td>
-<td align="right">1.342194</td>
-<td align="right">3.535432</td>
-</tr>
-<tr class="even">
-<td align="right">2001</td>
-<td align="left">Female</td>
-<td align="right">30</td>
-<td align="right">259</td>
-<td align="right">615.2508</td>
-<td align="right">1.496167</td>
-<td align="right">3.548187</td>
-</tr>
-<tr class="odd">
-<td align="right">2001</td>
-<td align="left">Male</td>
-<td align="right">31</td>
-<td align="right">317</td>
-<td align="right">721.0994</td>
-<td align="right">1.843871</td>
-<td align="right">4.199006</td>
-</tr>
-<tr class="even">
-<td align="right">2001</td>
-<td align="left">Total</td>
-<td align="right">33</td>
-<td align="right">542</td>
-<td align="right">1309.5534</td>
-<td align="right">1.570727</td>
-<td align="right">3.794365</td>
-</tr>
-<tr class="odd">
-<td align="right">2003</td>
-<td align="left">Female</td>
-<td align="right">32</td>
-<td align="right">232</td>
-<td align="right">560.0812</td>
-<td align="right">1.302875</td>
-<td align="right">3.149590</td>
-</tr>
-<tr class="even">
-<td align="right">2003</td>
-<td align="left">Total</td>
-<td align="right">35</td>
-<td align="right">482</td>
-<td align="right">1191.3046</td>
-<td align="right">1.361914</td>
-<td align="right">3.366266</td>
-</tr>
-<tr class="odd">
-<td align="right">2004</td>
-<td align="left">Male</td>
-<td align="right">34</td>
-<td align="right">277</td>
-<td align="right">655.6244</td>
-<td align="right">1.557059</td>
-<td align="right">3.686448</td>
-</tr>
-<tr class="even">
-<td align="right">2004</td>
-<td align="left">Total</td>
-<td align="right">36</td>
-<td align="right">485</td>
-<td align="right">1202.2932</td>
-<td align="right">1.355639</td>
-<td align="right">3.362737</td>
-</tr>
-<tr class="odd">
-<td align="right">2006</td>
-<td align="left">Female</td>
-<td align="right">34</td>
-<td align="right">233</td>
-<td align="right">582.8317</td>
-<td align="right">1.279559</td>
-<td align="right">3.199011</td>
-</tr>
-<tr class="even">
-<td align="right">2008</td>
-<td align="left">Female</td>
-<td align="right">30</td>
-<td align="right">274</td>
-<td align="right">666.9355</td>
-<td align="right">1.481333</td>
-<td align="right">3.600166</td>
-</tr>
-<tr class="odd">
-<td align="right">2010</td>
-<td align="left">Male</td>
-<td align="right">32</td>
-<td align="right">362</td>
-<td align="right">883.3563</td>
-<td align="right">1.955875</td>
-<td align="right">4.770420</td>
-</tr>
-<tr class="even">
-<td align="right">2002</td>
-<td align="left">Female</td>
-<td align="right">27</td>
-<td align="right">298</td>
-<td align="right">655.5235</td>
-<td align="right">1.698667</td>
-<td align="right">3.734204</td>
-</tr>
-<tr class="odd">
-<td align="right">2002</td>
-<td align="left">Male</td>
-<td align="right">31</td>
-<td align="right">315</td>
-<td align="right">721.0375</td>
-<td align="right">1.811581</td>
-<td align="right">4.147735</td>
-</tr>
-<tr class="even">
-<td align="right">2002</td>
-<td align="left">Total</td>
-<td align="right">32</td>
-<td align="right">564</td>
-<td align="right">1337.0065</td>
-<td align="right">1.615563</td>
-<td align="right">3.826668</td>
-</tr>
-<tr class="odd">
-<td align="right">2003</td>
-<td align="left">Male</td>
-<td align="right">32</td>
-<td align="right">288</td>
-<td align="right">663.4518</td>
-<td align="right">1.634000</td>
-<td align="right">3.768226</td>
-</tr>
-<tr class="even">
-<td align="right">2004</td>
-<td align="left">Female</td>
-<td align="right">29</td>
-<td align="right">267</td>
-<td align="right">598.2320</td>
-<td align="right">1.487310</td>
-<td align="right">3.329347</td>
-</tr>
-</tbody>
-</table>
+<div id="results" class="section level1">
+<h1>Results</h1>
 <p>We made a line plot to show rate of each infectious disease from 2001
 to 2020.
-<img src="report_files/figure-html/unnamed-chunk-7-1.png" width="700px" style="display: block; margin: auto;" /></p>
-<p>From the plot, we can see that <em>Campylobacteriosis</em>,
-<em>Salmonellosis</em>, <em>Giardiasis</em>, <em>Shigellosis</em>, and
+<img src="report_files/figure-html/unnamed-chunk-7-1.png" width="700px" style="display: block; margin: auto;" />
+<strong>Figure 1.</strong> Line plot of rate of each infectious disease
+from 2001 to 2020 <br> From the plot, we can see that
+<em>Campylobacteriosis</em>, <em>Salmonellosis</em>,
+<em>Giardiasis</em>, <em>Shigellosis</em>, and
 <em>Coccidioidomycosis</em> always have a high infection rate from 2001
 to 2020. We also notice that <em>Shiga toxin-producing E. coli (STEC)
 without HUS</em> rate has increased a lot since 2011.</p>
 <p>Let’s look further at the disease with the highest infection rate –
-<em>Campylobacteriosis</em>.
-<img src="report_files/figure-html/unnamed-chunk-8-1.png" width="700px" style="display: block; margin: auto;" /></p>
-<p>From the plot, we can see that infection rate of
-<strong>Campylobacteriosis</strong> is high in 2019.</p>
+<em>Campylobacteriosis</em>.</p>
+<p><img src="report_files/figure-html/unnamed-chunk-8-1.png" width="700px" style="display: block; margin: auto;" /></p>
+<p><strong>Figure 2.</strong> Boxplot of infection rate of
+Campylobacteriosis from 2001 to 2020 <br> From the plot, we can see that
+infection rate of <strong>Campylobacteriosis</strong> is high in
+2019.</p>
 <p>Let’s look at the disease in each county in 2019.</p>
 <p><img src="report_files/figure-html/unnamed-chunk-9-1.png" width="700px" style="display: block; margin: auto;" /></p>
-<p>From the plot, we can see that <strong>San Benito</strong> has a
-highest infection rate of <strong>Campylobacteriosis</strong> in 2019.
-Alpine has the lowest infection rate.</p>
+<p><strong>Figure 3.</strong> Barplot of infection rate of
+Campylobacteriosis in different counties in 2019 <br> From the plot, we
+can see that <strong>San Benito</strong> has a highest infection rate of
+<strong>Campylobacteriosis</strong> in 2019. Alpine has the lowest
+infection rate.</p>
 <p>Let see the data in a map view to see if there is a geographical
 factor playing a role.</p>
-<div id="htmlwidget-668435d4595657f5f38d" style="width:700px;height:415.296px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-668435d4595657f5f38d">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircles","args":[[37.6471385,38.4435501,39.6659588,38.1838996,39.1777385,37.919479,41.763958,38.7856116,36.7610058,39.6025462,40.7066554,33.0408143,36.561977,35.3466288,36.072478,39.0948019,40.7210862,34.1963983,37.2098213,38.0518169,37.5700295,39.4323876,37.1948063,41.5929185,37.9158363,36.240107,38.5070999,39.2975082,33.6756872,39.0620323,39.9922953,33.7298275,38.4500161,36.6116507,34.8572198,33.0236041,37.7272391,37.9349815,35.3852242,37.4146725,34.5370572,37.2206954,37.0124883,40.7605142,39.5769252,41.5879861,38.2672255,38.5251824,37.5623162,39.0361898,40.1261573,40.6478033,36.2288339,38.0214344,34.3587415,38.6795955,39.27013],[-121.912488,-120.6538563,-121.6019188,-120.5614415,-122.2375629,-121.9515431,-124.003614,-120.5342245,-119.6550193,-122.4016998,-123.9261757,-115.3554001,-117.4039269,-118.7295064,-119.8155301,-122.7467569,-120.6299518,-118.2618616,-119.7498023,-122.7459738,-119.9128613,-123.4428811,-120.7228019,-120.7183704,-118.8751668,-121.3155723,-122.3259045,-120.7713429,-117.7772068,-120.7227181,-120.8243709,-116.0022389,-121.3404408,-121.0858108,-116.1811967,-116.7761174,-123.0322294,-121.272244,-120.4475445,-122.3715457,-120.0399729,-121.6905097,-122.007205,-122.0435556,-120.5219926,-122.5332868,-121.939594,-122.9261095,-121.0028311,-121.7039397,-122.2322737,-123.114476,-118.7810551,-119.9647335,-119.1331432,-121.9024413,-121.3442587],500,null,null,{"interactive":true,"className":"","stroke":true,"color":["#BA9B1A","#276A01","#C26E29","#80870E","#D69C22","#B99B1A","#417204","#6A800A","#C59E1C","#6C800A","#BE9C1B","#C97E28","#006400","#B99B1A","#8C8C11","#80870E","#6C810A","#8C8B11","#D59823","#CE8826","#427204","#BA5C2A","#B09818","#86890F","#BB9B1A","#6D810B","#C49E1C","#958F12","#7D860E","#A99516","#006400","#507706","#9A9013","#A52A2A","#4C7605","#BE9C1B","#BE662A","#C19D1B","#74830C","#D59A23","#B09818","#B79A19","#A69416","#627D09","#CCA11D","#637D09","#A29315","#D49724","#CA7F27","#A19215","#D08E25","#226901","#AC9617","#236901","#B19818","#908D11","#B39918"],"weight":5,"opacity":1,"fill":true,"fillColor":["#BA9B1A","#276A01","#C26E29","#80870E","#D69C22","#B99B1A","#417204","#6A800A","#C59E1C","#6C800A","#BE9C1B","#C97E28","#006400","#B99B1A","#8C8C11","#80870E","#6C810A","#8C8B11","#D59823","#CE8826","#427204","#BA5C2A","#B09818","#86890F","#BB9B1A","#6D810B","#C49E1C","#958F12","#7D860E","#A99516","#006400","#507706","#9A9013","#A52A2A","#4C7605","#BE9C1B","#BE662A","#C19D1B","#74830C","#D59A23","#B09818","#B79A19","#A69416","#627D09","#CCA11D","#637D09","#A29315","#D49724","#CA7F27","#A19215","#D08E25","#226901","#AC9617","#236901","#B19818","#908D11","#B39918"],"fillOpacity":1},null,null,["29.18","7.952","48.011","20.269","36.289","29.113","11.027","16.948","30.93","17.199","29.891","43.924","5.416","29.131","22.147","20.287","17.258","22.035","37.416","41.384","11.21","52.199","27.7","21.146","29.444","17.366","30.742","23.515","19.748","26.607","5.42","13.136","24.277","62.852","12.591","29.848","49.938","30.341","18.393","36.856","27.651","28.711","26.085","15.764","31.98","15.909","25.455","37.773","43.666","25.29","39.9","7.477","27.003","7.611","27.837","22.653","28.183"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]},{"method":"addLegend","args":[{"colors":["#006400 , #396F03 7.98105717668361%, #7E870E 25.3917403718922%, #BF9D1B 42.8024235671008%, #D08E25 60.2131067623094%, #BE652A 77.623789957518%, #AB392A 95.0344731527265%, #A52A2A "],"labels":["10","20","30","40","50","60"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomleft","type":"numeric","title":"Infection Rate (%)","extra":{"p_1":0.0798105717668361,"p_n":0.950344731527265},"layerId":null,"className":"info legend","group":null}]},{"method":"addControl","args":["Figure 4. Leaflet map of the infection rate of Campylobacteriosis in 2019","topright",null,"info legend"]}],"limits":{"lat":[33.0236041,41.763958],"lng":[-124.003614,-115.3554001]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-986a725227104ac62804" style="width:700px;height:415.296px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-986a725227104ac62804">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircles","args":[[37.6471385,38.4435501,39.6659588,38.1838996,39.1777385,37.919479,41.763958,38.7856116,36.7610058,39.6025462,40.7066554,33.0408143,36.561977,35.3466288,36.072478,39.0948019,40.7210862,34.1963983,37.2098213,38.0518169,37.5700295,39.4323876,37.1948063,41.5929185,37.9158363,36.240107,38.5070999,39.2975082,33.6756872,39.0620323,39.9922953,33.7298275,38.4500161,36.6116507,34.8572198,33.0236041,37.7272391,37.9349815,35.3852242,37.4146725,34.5370572,37.2206954,37.0124883,40.7605142,39.5769252,41.5879861,38.2672255,38.5251824,37.5623162,39.0361898,40.1261573,40.6478033,36.2288339,38.0214344,34.3587415,38.6795955,39.27013],[-121.912488,-120.6538563,-121.6019188,-120.5614415,-122.2375629,-121.9515431,-124.003614,-120.5342245,-119.6550193,-122.4016998,-123.9261757,-115.3554001,-117.4039269,-118.7295064,-119.8155301,-122.7467569,-120.6299518,-118.2618616,-119.7498023,-122.7459738,-119.9128613,-123.4428811,-120.7228019,-120.7183704,-118.8751668,-121.3155723,-122.3259045,-120.7713429,-117.7772068,-120.7227181,-120.8243709,-116.0022389,-121.3404408,-121.0858108,-116.1811967,-116.7761174,-123.0322294,-121.272244,-120.4475445,-122.3715457,-120.0399729,-121.6905097,-122.007205,-122.0435556,-120.5219926,-122.5332868,-121.939594,-122.9261095,-121.0028311,-121.7039397,-122.2322737,-123.114476,-118.7810551,-119.9647335,-119.1331432,-121.9024413,-121.3442587],500,null,null,{"interactive":true,"className":"","stroke":true,"color":["#BA9B1A","#276A01","#C26E29","#80870E","#D69C22","#B99B1A","#417204","#6A800A","#C59E1C","#6C800A","#BE9C1B","#C97E28","#006400","#B99B1A","#8C8C11","#80870E","#6C810A","#8C8B11","#D59823","#CE8826","#427204","#BA5C2A","#B09818","#86890F","#BB9B1A","#6D810B","#C49E1C","#958F12","#7D860E","#A99516","#006400","#507706","#9A9013","#A52A2A","#4C7605","#BE9C1B","#BE662A","#C19D1B","#74830C","#D59A23","#B09818","#B79A19","#A69416","#627D09","#CCA11D","#637D09","#A29315","#D49724","#CA7F27","#A19215","#D08E25","#226901","#AC9617","#236901","#B19818","#908D11","#B39918"],"weight":5,"opacity":1,"fill":true,"fillColor":["#BA9B1A","#276A01","#C26E29","#80870E","#D69C22","#B99B1A","#417204","#6A800A","#C59E1C","#6C800A","#BE9C1B","#C97E28","#006400","#B99B1A","#8C8C11","#80870E","#6C810A","#8C8B11","#D59823","#CE8826","#427204","#BA5C2A","#B09818","#86890F","#BB9B1A","#6D810B","#C49E1C","#958F12","#7D860E","#A99516","#006400","#507706","#9A9013","#A52A2A","#4C7605","#BE9C1B","#BE662A","#C19D1B","#74830C","#D59A23","#B09818","#B79A19","#A69416","#627D09","#CCA11D","#637D09","#A29315","#D49724","#CA7F27","#A19215","#D08E25","#226901","#AC9617","#236901","#B19818","#908D11","#B39918"],"fillOpacity":1},null,null,["29.18","7.952","48.011","20.269","36.289","29.113","11.027","16.948","30.93","17.199","29.891","43.924","5.416","29.131","22.147","20.287","17.258","22.035","37.416","41.384","11.21","52.199","27.7","21.146","29.444","17.366","30.742","23.515","19.748","26.607","5.42","13.136","24.277","62.852","12.591","29.848","49.938","30.341","18.393","36.856","27.651","28.711","26.085","15.764","31.98","15.909","25.455","37.773","43.666","25.29","39.9","7.477","27.003","7.611","27.837","22.653","28.183"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]},{"method":"addLegend","args":[{"colors":["#006400 , #396F03 7.98105717668361%, #7E870E 25.3917403718922%, #BF9D1B 42.8024235671008%, #D08E25 60.2131067623094%, #BE652A 77.623789957518%, #AB392A 95.0344731527265%, #A52A2A "],"labels":["10","20","30","40","50","60"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"numeric","title":"Infection Rate (%)","extra":{"p_1":0.0798105717668361,"p_n":0.950344731527265},"layerId":null,"className":"info legend","group":null}]},{"method":"addControl","args":["Figure 4","topright",null,"info legend"]}],"limits":{"lat":[33.0236041,41.763958],"lng":[-124.003614,-115.3554001]}},"evals":[],"jsHooks":[]}</script>
+<p><strong>Figure 4.</strong> Leaflet map of the infection rate of
+Campylobacteriosis in 2019</p>
+<p><br></p>
+<p><br></p>
 <p>We made a table to see that if infection rates are the same for
 different genders.</p>
 <table>
@@ -1047,7 +422,9 @@ different genders.</p>
 </tr>
 </tbody>
 </table>
-<p>Chi-square test.</p>
+<p><strong>Table 1.</strong> infectious rates of Campylobacteriosis by
+different genders in San Benito in 2019.</p>
+<p>I did a Pearson’s Chi-square test.</p>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
@@ -1056,7 +433,6 @@ different genders.</p>
 <p>There is not a significant difference between male and female for the
 infection rate of Campylobacteriosis in San Benito in 2019 (p =
 0.9867).</p>
-</div>
 </div>
 <div id="conclusion-and-summary" class="section level1">
 <h1>Conclusion and Summary</h1>
@@ -1077,6 +453,19 @@ the infection rate of Campylobacteriosis in San Benito in 2019 (p =
 Campylobacteriosis in 2019. Inland area had relatively lower infection
 rate of Campylobacteriosis (Figure 4).</li>
 </ol>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>This study gives us a preliminary overview of the infectious diseases
+in California. Most infectious diseases keep a relative low infection
+rate from 2001 to 2020. However, some of diseases increased a lot in
+infection rate since 2001. Further analysis can focus on the reason why
+to this phenomenon. Interestingly, the infection rates of some high
+infection rate diseases decreased significantly from 2019 to 2020. This
+is not a very usual phenomenon. It may have something to do with
+COVID-19, because people wore masks and reduced their travels in 2020.
+Beacuse of limited information in this dataset, further analysis need
+more dataset.</p>
 <p><br></p>
 </div>
 <div id="reference" class="section level1">
@@ -1088,15 +477,9 @@ Section, 2001-2020.
 Infectious-Diseases-by-Disease-County-Year-Sex.csv</li>
 </ol>
 </div>
-<div id="discussion" class="section level1">
-<h1>Discussion</h1>
-</div>
-
-<p>Copyright &copy; 2022, Qiushi Peng.</p>
 
 
-</div>
-</div>
+
 
 </div>
 
@@ -1129,35 +512,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

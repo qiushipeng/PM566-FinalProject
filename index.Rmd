@@ -5,7 +5,6 @@ output:
   html_document:
     toc: yes
     toc_float: yes
-  pdf_document: default
 always_allow_html: TRUE
 date: "`r Sys.Date()`"
 ---
@@ -37,13 +36,19 @@ opts_chunk$set(
 
 # Introduction
 
-The dataset, called *Infectious Diseases by Disease, County, Year, and Sex*, is downloaded from [California Health and Human Services Open Data Portal](https://data.chhs.ca.gov/).
+The most well-known infectious disease probably is the COVID-19, because it has been bothering us for several years. Fortunately, we have vaccines and drugs against COVID-19. However, a lot of infectious diseases have not been known  widely. Although they may have limited influence on our lives, I think we should still pay attention to them. Because they also cause diseases and even death.
+
+Therefore, I found a dataset called *Infectious Diseases by Disease, County, Year, and Sex*. It is downloaded from [California Health and Human Services Open Data Portal](https://data.chhs.ca.gov/).
 
 This dataset contains case counts and rates by disease, county, year, and sex for selected infectious diseases that met the surveillance case definition in California. There are 9 columns in the dataset: *Disease*, *County*, *Year*, *Sex*, *Cases*,	*Population*,	*Rate*,	*Lower_95_\_CI*, and *Upper_95_\_CI*. There are 167,974 rows. The data represent cases with an estimated illness onset date from 2001 through the last year indicated from California Confidential Morbidity Reports and/or Laboratory Reports. Data captured represent reportable case counts as of the date indicated in the “Temporal Coverage” section below, so the data presented may differ from previous publications due to delays inherent to case reporting, laboratory reporting, and epidemiologic investigation.
 
-After looking at the whole dataset, we formed two questions:
-We would like to know the infectious diseases with the highest prevalence, and in which year the diseases had a highest infection rate. In that year, did the diseases spread evenly across the whole state? Is there a significant difference in infection rates between males and females?
+After looking at the whole dataset, we formed some questions:
 
+**I would like to know the infectious diseases with the highest prevalence, and in which year the diseases had a highest infection rate.**
+
+**In that year, did the diseases spread evenly across the whole state? Is there a significant difference in infection rates between males and females?**
+
+You can download the report by clicking the "**Download the report**" button on the top.
 
 
 # Methods

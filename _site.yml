@@ -10,7 +10,7 @@ navbar:
       href: summary.html
       
     - text: "Download the report"
-      href: https://github.com/qiushipeng/PM566-FinalProject/blob/main/index.pdf
+      href: https://github.com/qiushipeng/PM566-FinalProject/blob/main/report.pdf
   
   right:
     - icon: fa-github fa-lg

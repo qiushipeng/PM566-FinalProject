@@ -1,0 +1,3 @@
+*data/odp_idb_2020_ddg_compliant.csv* is the dataset I am interested in. It was downloaded from "https://data.chhs.ca.gov/dataset/infectious-disease".
+
+To get the geographic information, I aslo downloaded *us-county-boundaries.csv* from the website "https://public.opendatasoft.com/explore/dataset/us-county-boundaries/export/?disjunctive.statefp&disjunctive.countyfp&disjunctive.name&disjunctive.namelsad&disjunctive.stusab&disjunctive.state_name&refine.stusab=CA".
